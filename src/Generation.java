@@ -28,7 +28,7 @@ public class Generation {
 	 * Construct a Generation using the given string and a character to represent
 	 * true.
 	 * 
-	 * @param states     string to be parsed and used to create a Generation
+	 * @param states string to be parsed and used to create a Generation
 	 * @param trueSymbol character to represent true
 	 */
 	public Generation(String states, char trueSymbol) {

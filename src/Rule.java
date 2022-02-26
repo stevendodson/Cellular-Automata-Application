@@ -1,5 +1,5 @@
 
-public class Rule {
+public abstract class Rule {
 	private int rule;
 	private String binaryRule;
 
@@ -18,26 +18,14 @@ public class Rule {
 		return rule;
 	}
 
-	public static boolean[] getNeighborhood(int index, Generation gen) {
+	public abstract boolean[] getNeighborhood(int idx, Generation gen);
 
-		boolean[] result = new boolean[3];
-		if (gen.size() == 1) {
-			result[0] = result[1] = result[2] = gen.getState(0);
-			return result;
+	public static boolean[] getNeighborhoodByRadius(int idx, int radius, Generation gen) {
+		boolean[] result = new boolean[radius * 2 + 1];
+		int range = idx - radius;
+		for (int i = 0; i < result.length; ++i, ++range) {
+			result[i] = gen.getState(Math.floorMod(range, gen.size()));
 		}
-		result[1] = gen.getState(index);
-		if (index - 1 < 0) {
-			result[0] = gen.getState(gen.size() - 1);
-			result[2] = gen.getState(index + 1);
-			return result;
-		}
-		if (index + 1 > gen.size() - 1) {
-			result[0] = gen.getState(index - 1);
-			result[2] = gen.getState(0);
-			return result;
-		}
-		result[0] = gen.getState(index - 1);
-		result[2] = gen.getState(index + 1);
 		return result;
 	}
 
@@ -95,10 +83,14 @@ public class Rule {
 	public Generation evolve(Generation gen) {
 		boolean[] temp = new boolean[gen.size()];
 		for (int i = 0; i < gen.size(); ++i) {
-			temp[i] = evolve(getNeighborhood(i, gen));
+			temp[i] = evolve(getNeighborhoodByRadius(i, 1, gen));
 		}
 		Generation result = new Generation(temp);
 		return result;
 	}
-	
+
+	public String ruleTableString(char falseSymbol, char trueSymbol) {
+		return null;
+	}
+
 }

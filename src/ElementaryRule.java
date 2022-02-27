@@ -7,6 +7,7 @@ public class ElementaryRule extends Rule {
 		if (ruleNum < 0 || ruleNum > 255) {
 			throw new RuleNumException(0, 255);
 		}
+		radiusSize = 1;
 	}
 
 	public boolean evolve(boolean[] neighborhood) {

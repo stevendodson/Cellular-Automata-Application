@@ -2,6 +2,7 @@
 public abstract class Rule {
 	private int ruleNum;
 	protected String binaryRule;
+	protected int radiusSize;
 
 	protected Rule(int ruleNum) {
 		this.ruleNum = ruleNum;
@@ -30,7 +31,7 @@ public abstract class Rule {
 	public Generation evolve(Generation gen) {
 		boolean[] temp = new boolean[gen.size()];
 		for (int i = 0; i < gen.size(); ++i) {
-			temp[i] = evolve(getNeighborhoodByRadius(i, 1, gen));
+			temp[i] = evolve(getNeighborhoodByRadius(i, radiusSize, gen));
 		}
 		Generation result = new Generation(temp);
 		return result;

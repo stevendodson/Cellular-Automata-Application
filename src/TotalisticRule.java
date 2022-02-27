@@ -8,8 +8,36 @@ public class TotalisticRule extends Rule {
 		if (ruleNum < 0 || ruleNum > 63) {
 			throw new RuleNumException(0, 63);
 		}
+		radiusSize = 2;
 	}
 	public boolean evolve(boolean[] neighborhood) {
+		boolean result;
+		int numTrue = 0;
+		for (boolean b : neighborhood) {
+			if (b == true) {
+				++numTrue;
+			}
+		}
+		switch (numTrue) {
+		case 5:
+			result = (binaryRule.charAt(2) == '0') ? false : true;
+			return result;
+		case 4:
+			result = (binaryRule.charAt(3) == '0') ? false : true;
+			return result;
+		case 3:
+			result = (binaryRule.charAt(4) == '0') ? false : true;
+			return result;
+		case 2:
+			result = (binaryRule.charAt(5) == '0') ? false : true;
+			return result;
+		case 1:
+			result = (binaryRule.charAt(6) == '0') ? false : true;
+			return result;
+		case 0:
+			result = (binaryRule.charAt(7) == '0') ? false : true;
+			return result;
+		}
 		return false;
 	}
 	public boolean[] getNeighborhood(int idx, Generation gen) {

@@ -1,3 +1,4 @@
+import java.util.StringJoiner;
 
 public class ElementaryRule extends Rule {
 	private String binaryRule;
@@ -66,10 +67,14 @@ public class ElementaryRule extends Rule {
 		return getNeighborhoodByRadius(idx, 1, gen);
 	}
 	public String ruleTableString(char falseSymbol, char trueSymbol) {
+		StringJoiner joiner = new StringJoiner("   ", "", " ");
+		for (int i = 0; i < binaryRule.length(); ++i) {
+			joiner.add(Character.toString(binaryRule.charAt(i)));
+		}
 		String table = "111 110 101 100 011 010 001 000" + System.lineSeparator() +
-				binaryRule;
-		table.replace('0', falseSymbol);
-		table.replace('1', trueSymbol);
+				" " + joiner.toString();
+		table = table.replace('0', falseSymbol);
+		table = table.replace('1', trueSymbol);
 		return table;
 	}
 }

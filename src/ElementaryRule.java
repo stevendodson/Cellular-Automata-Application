@@ -1,15 +1,12 @@
 import java.util.StringJoiner;
 
 public class ElementaryRule extends Rule {
-	private String binaryRule;
 	
 	protected ElementaryRule(int ruleNum) throws RuleNumException {
 		super(ruleNum);
 		if (ruleNum < 0 || ruleNum > 255) {
 			throw new RuleNumException(0, 255);
 		}
-		
-		binaryRule = String.format("%8s", Integer.toBinaryString(ruleNum)).replace(' ', '0');
 	}
 
 	public boolean evolve(boolean[] neighborhood) {

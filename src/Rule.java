@@ -1,9 +1,11 @@
 
 public abstract class Rule {
 	private int ruleNum;
+	protected String binaryRule;
 
 	protected Rule(int ruleNum) {
 		this.ruleNum = ruleNum;
+		binaryRule = String.format("%8s", Integer.toBinaryString(ruleNum)).replace(' ', '0');
 	}
 
 	public int getRuleNum() {

@@ -2,7 +2,7 @@ import java.util.StringJoiner;
 
 public class TotalisticRule extends Rule {
 	private static final int DEFAULT_RADIUS = 2;
-	
+
 	protected TotalisticRule(int ruleNum) throws RuleNumException {
 		super(ruleNum);
 		if (ruleNum < 0 || ruleNum > 63) {
@@ -10,6 +10,7 @@ public class TotalisticRule extends Rule {
 		}
 		radiusSize = 2;
 	}
+
 	public boolean evolve(boolean[] neighborhood) {
 		boolean result;
 		int numTrue = 0;
@@ -40,9 +41,11 @@ public class TotalisticRule extends Rule {
 		}
 		return false;
 	}
+
 	public boolean[] getNeighborhood(int idx, Generation gen) {
 		return getNeighborhoodByRadius(idx, DEFAULT_RADIUS, gen);
 	}
+
 	public String ruleTableString(char falseSymbol, char trueSymbol) {
 		String result;
 		StringJoiner joiner = new StringJoiner(" ");

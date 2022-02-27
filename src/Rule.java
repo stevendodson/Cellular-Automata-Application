@@ -1,13 +1,13 @@
 
 public abstract class Rule {
-	private int rule;
+	private int ruleNum;
 
 	protected Rule(int ruleNum) {
-		rule = ruleNum;
+		this.ruleNum = ruleNum;
 	}
 
 	public int getRuleNum() {
-		return rule;
+		return ruleNum;
 	}
 
 	public abstract boolean[] getNeighborhood(int idx, Generation gen);

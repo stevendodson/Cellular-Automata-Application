@@ -43,7 +43,8 @@ public abstract class Rule {
 	public abstract boolean[] getNeighborhood(int idx, Generation gen);
 
 	/**
-	 * Returns the boolean result of a given neighborhood following the rule number.
+	 * Returns the boolean result of a given neighborhood after being evolved using
+	 * the rule number.
 	 * 
 	 * @param neighborhood the neighborhood to be evolved
 	 * @return the boolean result of the given neighborhood after the rule is

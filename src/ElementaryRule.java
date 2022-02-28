@@ -1,7 +1,20 @@
 import java.util.StringJoiner;
 
+/**
+ * Represents any one of the 256 rules that govern the evolution of elementary
+ * cellular automata.
+ * 
+ * @author Steven Dodson
+ * @version 1.0
+ */
 public class ElementaryRule extends Rule {
-	
+
+	/**
+	 * Creates a Rule object within the bounds of an elementary rule.
+	 * 
+	 * @param ruleNum the desired rule number
+	 * @throws RuleNumException if ruleNum is less than 0 or greater than 255
+	 */
 	protected ElementaryRule(int ruleNum) throws RuleNumException {
 		super(ruleNum);
 		if (ruleNum < 0 || ruleNum > 255) {
@@ -60,17 +73,17 @@ public class ElementaryRule extends Rule {
 		}
 		return true;
 	}
-	
+
 	public boolean[] getNeighborhood(int idx, Generation gen) {
 		return getNeighborhoodByRadius(idx, 1, gen);
 	}
+
 	public String ruleTableString(char falseSymbol, char trueSymbol) {
 		StringJoiner joiner = new StringJoiner("   ", "", " ");
 		for (int i = 0; i < binaryRule.length(); ++i) {
 			joiner.add(Character.toString(binaryRule.charAt(i)));
 		}
-		String table = "111 110 101 100 011 010 001 000" + System.lineSeparator() +
-				" " + joiner.toString();
+		String table = "111 110 101 100 011 010 001 000" + System.lineSeparator() + " " + joiner.toString();
 		table = table.replace('0', falseSymbol);
 		table = table.replace('1', trueSymbol);
 		return table;

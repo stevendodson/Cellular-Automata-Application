@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.StringJoiner;
 
-public class Automaton {
+public abstract class Automaton {
 	private Rule rule;
 	private ArrayList<Generation> generations;
 	public char falseSymbol = '0';
@@ -16,7 +16,7 @@ public class Automaton {
 		if (initial == null) {
 			return;
 		}
-		rule = new Rule(ruleNum);
+		rule = createRule(ruleNum);
 		generations = new ArrayList<Generation>(1);
 		generations.add(initial);
 
@@ -29,7 +29,7 @@ public class Automaton {
 			return;
 		}
 		BufferedReader br = new BufferedReader(new FileReader(filename));
-		rule = new Rule(Integer.valueOf(br.readLine()));
+		rule = createRule(Integer.valueOf(br.readLine()));
 		falseSymbol = (char) br.read();
 		br.read();
 		trueSymbol = (char) br.read();
@@ -87,15 +87,21 @@ public class Automaton {
 	}
 	
 	public String ruleTableString() {
-		return null;
+		return rule.ruleTableString(falseSymbol, trueSymbol);
 	}
 	
-	protected Rule createRule(int ruleNum) {
-		return null;
-	}
+	abstract protected Rule createRule(int ruleNum);
 	
-	public Automaton createAutomaton(CellularAutomaton ca, int ruleNum, Generation initial) {
-		return null;
+	public static Automaton createAutomaton(CellularAutomaton ca, int ruleNum, Generation initial) {
+		if (ca == null) {
+			return null;
+		}
+		if (ca == CellularAutomaton.ECA) {
+			return new ElementaryAutomaton(ruleNum, initial);
+		}
+		if (ca == CellularAutomaton.TCA) {
+			return new TotalisticAutomaton(ruleNum, initial);
+		}
 	}
 
 }

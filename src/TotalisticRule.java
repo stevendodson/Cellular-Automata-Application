@@ -1,8 +1,23 @@
 import java.util.StringJoiner;
 
+/**
+ * Represents any one of the 64 rules that govern the evolution of
+ * one-dimensional, two-state totalistic cellular automata with a neighborhood
+ * radius of 2.
+ * 
+ * @author Steven Dodson
+ * @version 1.0
+ */
 public class TotalisticRule extends Rule {
+	/** Default radius for totalistic cellular automata */
 	private static final int DEFAULT_RADIUS = 2;
 
+	/**
+	 * Creates a Rule object within the bounds of a totalistic rule.
+	 * 
+	 * @param ruleNum the desired rule number
+	 * @throws RuleNumException if ruleNum is less than 0 or greater than 63
+	 */
 	protected TotalisticRule(int ruleNum) throws RuleNumException {
 		super(ruleNum);
 		if (ruleNum < 0 || ruleNum > 63) {

@@ -13,5 +13,4 @@ public class TotalisticAutomaton extends Automaton {
 	protected Rule createRule(int ruleNum) throws RuleNumException {
 		return new TotalisticRule(ruleNum);
 	}
-
 }

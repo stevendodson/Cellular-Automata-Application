@@ -6,6 +6,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.StringJoiner;
 
+/**
+ * 
+ * @author steven
+ *
+ */
 public abstract class Automaton {
 	private Rule rule;
 	private ArrayList<Generation> generations;

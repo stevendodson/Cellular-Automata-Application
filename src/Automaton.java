@@ -12,7 +12,7 @@ public abstract class Automaton {
 	public char falseSymbol = '0';
 	public char trueSymbol = '1';
 
-	protected Automaton(int ruleNum, Generation initial) {
+	protected Automaton(int ruleNum, Generation initial) throws RuleNumException {
 		if (initial == null) {
 			return;
 		}
@@ -24,7 +24,7 @@ public abstract class Automaton {
 		trueSymbol = '1';
 	}
 
-	protected Automaton(String filename) throws NumberFormatException, IOException {
+	protected Automaton(String filename) throws NumberFormatException, IOException, RuleNumException {
 		if (filename == null || filename == "") {
 			return;
 		}
@@ -90,18 +90,16 @@ public abstract class Automaton {
 		return rule.ruleTableString(falseSymbol, trueSymbol);
 	}
 	
-	abstract protected Rule createRule(int ruleNum);
+	abstract protected Rule createRule(int ruleNum) throws RuleNumException;
 	
-	public static Automaton createAutomaton(CellularAutomaton ca, int ruleNum, Generation initial) {
-		if (ca == null) {
-			return null;
-		}
+	public static Automaton createAutomaton(CellularAutomaton ca, int ruleNum, Generation initial) throws RuleNumException {
 		if (ca == CellularAutomaton.ECA) {
 			return new ElementaryAutomaton(ruleNum, initial);
 		}
 		if (ca == CellularAutomaton.TCA) {
 			return new TotalisticAutomaton(ruleNum, initial);
 		}
+		return null;
 	}
 
 }

@@ -8,10 +8,11 @@ import java.util.Arrays;
  * @version 1.0
  */
 public class Generation {
+	/** Holds the state of each cell in the Generation. */
 	private boolean[] cellStates;
 
 	/**
-	 * Construct a Generation with the given states
+	 * Construct a Generation with the given states.
 	 * 
 	 * @param states list of states for the Generation
 	 */

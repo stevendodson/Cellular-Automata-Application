@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.StringJoiner;
 
 /**
- * Represents any one-dimensional, two-state cellular automata that evolves
+ * Represents any one-dimensional, two-state cellular automaton that evolves
  * according to a rule represented by the Rule class.
  * 
  * @author Steven Dodson
@@ -28,7 +28,7 @@ public abstract class Automaton {
 	 * generation.
 	 * 
 	 * @param ruleNum the rule number used to evolve the Automaton
-	 * @param initial the initial generation of the Automaton
+	 * @param initial a reference to the initial generation of the Automaton
 	 * @throws RuleNumException if ruleNum is outside the bounds for the Automaton
 	 *                          type
 	 */

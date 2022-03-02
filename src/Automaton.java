@@ -33,9 +33,6 @@ public abstract class Automaton {
 	 *                          type
 	 */
 	protected Automaton(int ruleNum, Generation initial) throws RuleNumException {
-		if (initial == null) {
-			return;
-		}
 		rule = createRule(ruleNum);
 		generations = new ArrayList<Generation>(1);
 		generations.add(initial);

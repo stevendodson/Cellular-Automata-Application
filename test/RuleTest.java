@@ -9,7 +9,7 @@ import java.lang.reflect.Modifier;
 import org.junit.jupiter.api.Test;
 
 class RuleTest {
-
+	
 	@Test
 	void testAbstractDeclarations() {
 		assertTrue(Modifier.isAbstract(Rule.class.getModifiers()));

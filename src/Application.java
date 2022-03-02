@@ -53,12 +53,13 @@ public class Application {
 		// Automaton, and print out the full evolution to System.out.
 		// Refer to the README for details on exception handling.
 		try {
-			CellularAutomaton ca = CellularAutomaton.parse(args[0]);
-			int ruleNum = Integer.parseInt(args[1]);
-			Generation gen = new Generation(args[4], args[3].charAt(0));
-			int numEvolutions = Integer.parseInt(args[5]);
+			CellularAutomaton ca = CellularAutomaton.parse(args[IDX_CA]);
+			int ruleNum = Integer.parseInt(args[IDX_RULE_NUM]);
+			Generation gen = new Generation(args[IDX_INITIAL_GENERATION], args[IDX_TRUE_SYMBOL].charAt(0));
+			int numEvolutions = Integer.parseInt(args[IDX_NUM_EVOLVE]);
 			Automaton a = Automaton.createAutomaton(ca, ruleNum, gen);
-			a.falseSymbol = args[2].charAt(0);
+			a.falseSymbol = args[IDX_FALSE_SYMBOL].charAt(0);
+			a.trueSymbol = args[IDX_TRUE_SYMBOL].charAt(0);
 			a.evolve(numEvolutions);
 			System.out.println(a.toString());
 		} catch (Exception e) {

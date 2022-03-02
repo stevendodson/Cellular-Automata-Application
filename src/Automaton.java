@@ -19,9 +19,9 @@ public abstract class Automaton {
 	/** An ArrayList containing generations at different stages of evolution */
 	private ArrayList<Generation> generations;
 	/** The character used to represent false */
-	public char falseSymbol = '0';
+	public char falseSymbol;
 	/** The character used to represent true */
-	public char trueSymbol = '1';
+	public char trueSymbol;
 
 	/**
 	 * Constructs a new Automaton object with the given rule number and initial

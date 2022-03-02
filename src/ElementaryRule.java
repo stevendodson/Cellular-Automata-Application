@@ -84,7 +84,8 @@ public class ElementaryRule extends Rule {
 			joiner.add(Character.toString(binaryRule.charAt(i)));
 		}
 		String table = "111 110 101 100 011 010 001 000" + System.lineSeparator() + " " + joiner.toString();
-		table = table.replace('0', falseSymbol).replace('1', trueSymbol);
+		table = table.replace('0', '\0').replace('1', '\1');
+		table = table.replace('\0', falseSymbol).replace('\1', trueSymbol);
 		return table;
 	}
 }

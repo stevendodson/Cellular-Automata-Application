@@ -67,7 +67,8 @@ public class TotalisticRule extends Rule {
 		for (int i = 2; i < binaryRule.length(); ++i) {
 			joiner.add(Character.toString(binaryRule.charAt(i)));
 		}
-		result = joiner.toString().replace('0', falseSymbol).replace('1', trueSymbol);
+		result = joiner.toString().replace('0', '\0').replace('1', '\1');
+		result = result.replace('\0', falseSymbol).replace('\1', trueSymbol);
 		String table = "5 4 3 2 1 0" + System.lineSeparator() + result;
 		return table;
 	}

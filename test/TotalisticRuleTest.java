@@ -137,7 +137,6 @@ class TotalisticRuleTest {
 		// Define a binary De Bruijn sequence of order 5.
 		String states = "00000100011001010011101011011111";
 		Generation current = new Generation(states, '1');
-
 		Rule rule = new TotalisticRule(22);
 		Generation next = rule.evolve(current);
 		assertEquals("11011111111011111000100000111010", next.getStates('0', '1'));

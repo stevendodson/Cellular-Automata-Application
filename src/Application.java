@@ -111,6 +111,12 @@ public class Application {
 		}
 	}
 
+	/**
+	 * Runs the Application by calling parseArgs on the arguments used to construct
+	 * the Application.
+	 * 
+	 * @throws RuntimeException if an exception is thrown in parseArgs
+	 */
 	public void run() throws RuntimeException {
 		parseArgs(appArgs);
 	}

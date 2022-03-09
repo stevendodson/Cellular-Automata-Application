@@ -7,7 +7,10 @@
  */
 public enum CellularAutomaton {
 
-	ECA, TCA;
+	/** Represents an Elementary Cellular Automaton */
+	ECA,
+	/** Represents a Totalistic Cellular Automaton */
+	TCA;
 
 	/**
 	 * Parses a String and returns a Cellular Automaton type.

@@ -7,8 +7,8 @@ import java.util.ArrayList;
 import java.util.StringJoiner;
 
 /**
- * Represents any one-dimensional, two-state cellular automaton that evolves
- * according to a rule represented by the Rule class.
+ * This class represents any one-dimensional, two-state cellular automaton that
+ * evolves according to a rule represented by the Rule class.
  * 
  * @author Steven Dodson
  * @version 1.0

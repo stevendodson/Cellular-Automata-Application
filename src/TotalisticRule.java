@@ -60,7 +60,7 @@ public class TotalisticRule extends Rule {
 	public boolean[] getNeighborhood(int idx, Generation gen) {
 		return getNeighborhoodByRadius(idx, DEFAULT_RADIUS, gen);
 	}
-
+	
 	public String ruleTableString(char falseSymbol, char trueSymbol) {
 		String result;
 		StringJoiner joiner = new StringJoiner(" ");

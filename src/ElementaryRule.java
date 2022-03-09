@@ -1,8 +1,8 @@
 import java.util.StringJoiner;
 
 /**
- * Represents any one of the 256 rules that govern the evolution of elementary
- * cellular automata.
+ * This class represents any one of the 256 rules that govern the evolution of
+ * elementary cellular automata.
  * 
  * @author Steven Dodson
  * @version 1.0
